@@ -57,7 +57,7 @@ public:
 
 class FaceLib {
 public:
-	int num_of_faces = 202;
+	int num_of_faces = 200;
 	int num_of_persons = 40;
 	int faces_per_person = 5;
 	vector<FaceEntry*> faces;
@@ -74,13 +74,6 @@ public:
 				faces.push_back(face);
 				_samples.push_back(face->vect);
 			}
-		}
-		for (int j = 1; j <= 2; ++j) {
-			string entry_path = path + "/s" + to_string(41) + "/" + to_string(j);
-			FaceEntry* face = new FaceEntry();
-			face->load(entry_path, ".png");
-			faces.push_back(face);
-			_samples.push_back(face->vect);
 		}
 		hconcat(_samples, samples);
 	}

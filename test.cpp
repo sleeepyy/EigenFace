@@ -5,7 +5,7 @@ int main(int argc, char** argv) {
 	facelib.load(string("att_faces"));
 
 	char* model_name = "eigen.model";
-	char* file_name = "att_faces/s41/3.png";
+	char* file_name = "att_faces/s23/8.png";
 	if (argc >= 3) {
 		model_name = argv[2];
 		file_name = argv[1];
@@ -22,12 +22,7 @@ int main(int argc, char** argv) {
 	for (int _i = 1; _i <= 41; ++_i) {
 		for (int _j = 1; _j <= 10; _j++)
 		{
-			if (_i == 41) {
-				face.load(string("att_faces/s") + to_string(_i) + "/" + to_string(_j), ".png");
-			}
-			else {
-				face.load(string("att_faces/s") + to_string(_i) + "/" + to_string(_j), ".pgm");
-			}
+			face.load(string("att_faces/s") + to_string(_i) + "/" + to_string(_j), ".pgm");
 			Mat face_vect = e_vector_mat * face.vect;
 			double min_d = norm(face_vect, distance.col(0), NORM_L2);
 			double temp_d = 0;
@@ -41,7 +36,6 @@ int main(int argc, char** argv) {
 				}
 			}
 			cout << (min_i/5)+1 << "/" << (min_i % 5)+1 << " ";
-			if (_i == 41 && _j == 3)break;
 		}
 		cout << endl;
 	}
